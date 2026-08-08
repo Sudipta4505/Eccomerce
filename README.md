@@ -1,6 +1,6 @@
 # 🛍️ E-Commerce Fashion Store
 
-A fully responsive, modern e-commerce front-end built with pure **HTML**, **CSS**, and **JavaScript** — no frameworks required.
+A fully responsive, modern E-commerce front-end built with pure **HTML**, **CSS**, and **JavaScript** — no frameworks required.
 
 ---
 
