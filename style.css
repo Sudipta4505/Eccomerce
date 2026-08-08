@@ -276,6 +276,17 @@ body {
     background-color: var(--bg-light);
 }
 
+.adbox {
+    width: 100%;
+}
+
+.product1 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
 .cartbox {
     text-align: center;
     margin-bottom: 30px;
@@ -400,7 +411,8 @@ body {
     background-image: url("https://assets.ajio.com/medias/sys_master/root1/20260220/vWP9/699899597ef0c7385c1be1f0/-473Wx593H-703002055-maroon-MODEL.jpg");
 }
 
-.pro-details {
+.pro-details,
+#ad {
     padding: 14px 16px 0 16px;
 }
 
@@ -672,16 +684,51 @@ body {
 }
 
 /* ==========================================================================
-   RESPONSIVE BREAKPOINTS (ALL DEVICES SUPPORTED)
+   RESPONSIVE BREAKPOINTS — ALL DEVICES SUPPORTED
+   Breakpoints: 1440 | 1200 | 991 | 768 | 576 | 480 | 375 | 320
    ========================================================================== */
 
-/* Laptop & Desktop Containers (1200px and below) */
-@media (max-width: 1200px) {
-    .ad-content h2 {
-        font-size: 40px;
+/* ── Wide / Large Desktops (1440px+) ─────────────────────────────────────── */
+@media (min-width: 1440px) {
+    #header {
+        padding: 0 10%;
     }
 
-    .products {
+    .ad {
+        padding: 80px 10%;
+    }
+
+    .ad-content h2 {
+        font-size: 56px;
+    }
+
+    .cart-item {
+        padding: 50px 10%;
+    }
+
+    #featurebox2,
+    .newarrive,
+    #offerbox {
+        padding: 70px 10%;
+    }
+
+    .explore {
+        padding: 110px 10%;
+    }
+
+    .signup {
+        padding: 60px 10%;
+    }
+}
+
+/* ── Standard Desktops / Laptops (1200px and below) ──────────────────────── */
+@media (max-width: 1200px) {
+    .ad-content h2 {
+        font-size: 42px;
+    }
+
+    .products,
+    .product1 {
         grid-template-columns: repeat(3, 1fr);
         gap: 20px;
     }
@@ -689,9 +736,18 @@ body {
     .cart-item {
         gap: 16px;
     }
+
+    .pro {
+        height: 420px;
+    }
+
+    /* .featurebox {
+        height: 160px;
+    } */
+
 }
 
-/* Tablets (991px and below) */
+/* ── Tablets Landscape / Small Laptops (991px and below) ─────────────────── */
 @media (max-width: 991px) {
     #header {
         padding: 0 4%;
@@ -699,7 +755,7 @@ body {
 
     .ad {
         padding: 40px 5%;
-        min-height: 440px;
+        min-height: 420px;
         gap: 30px;
     }
 
@@ -708,7 +764,7 @@ body {
     }
 
     .backimg {
-        height: 320px;
+        height: 300px;
     }
 
     .cart-item {
@@ -718,7 +774,7 @@ body {
     }
 
     .featurebox {
-        height: 150px;
+        height: 160px;
     }
 
     #featurebox2,
@@ -727,17 +783,37 @@ body {
         padding: 40px 5%;
     }
 
-    .products {
+    .cartbox h2,
+    .cartbox h3 {
+        font-size: 30px;
+    }
+
+    .products,
+    .product1 {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
     .pro {
-        height: 260px;
+        height: 280px;
+    }
+
+    .explore {
+        padding: 70px 5%;
+        min-height: 380px;
+    }
+
+    .explore h4 {
+        font-size: 28px;
+    }
+
+    .mainbox1 {
+        padding: 30px 40px;
     }
 
     .signup {
         padding: 40px 5%;
+        gap: 24px;
     }
 
     .foot {
@@ -746,8 +822,10 @@ body {
     }
 }
 
-/* Mobile Menu & Small Tablets (799px and below) */
-@media (max-width: 799px) {
+/* ── Tablets Portrait (768px and below) ──────────────────────────────────── */
+@media (max-width: 768px) {
+
+    /* Slide-in mobile navigation */
     #navbar {
         display: flex;
         flex-direction: column;
@@ -759,16 +837,18 @@ body {
         height: 100vh;
         width: 280px;
         background-color: var(--bg-white);
-        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        box-shadow: -5px 0 30px rgba(0, 0, 0, 0.18);
         padding: 80px 0 0 30px;
         transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 999;
+        overflow-y: auto;
     }
 
     #navbar.active {
         right: 0;
     }
 
+    /* Hamburger icon */
     .mobile {
         display: flex;
         align-items: center;
@@ -779,14 +859,23 @@ body {
         display: flex;
         align-items: center;
         color: var(--text-dark);
-        font-size: 24px;
+        font-size: 26px;
+        padding: 6px;
+        border-radius: 8px;
+        transition: var(--transition-smooth);
     }
 
+    .mobile i:hover {
+        background-color: var(--bg-light);
+        color: var(--primary-color);
+    }
+
+    /* Close icon inside nav */
     .mobile2 {
         display: flex;
         position: absolute;
-        top: 20px;
-        right: 20px;
+        top: 18px;
+        right: 18px;
     }
 
     .mobile2 i {
@@ -796,10 +885,13 @@ body {
         color: var(--text-dark);
         padding: 10px;
         cursor: pointer;
+        border-radius: 8px;
+        transition: var(--transition-smooth);
     }
 
     .mobile2 i:hover {
         color: var(--secondary-color);
+        background-color: #fff0f0;
     }
 
     #navbar li {
@@ -818,147 +910,405 @@ body {
         display: none;
     }
 
+    /* Hero */
+    .ad {
+        gap: 24px;
+        min-height: 380px;
+    }
+
+    .backimg {
+        height: 270px;
+    }
+
+    /* Feature category grid → 2 cols */
     .cart-item {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 
     .featurebox {
-        height: 140px;
+        height: 350px;
     }
 
+    .pro {
+        height: 480px;
+    }
+
+    /* Newsletter stacks vertically */
     .signup {
         flex-direction: column;
         text-align: center;
+        align-items: center;
     }
 
     .signup .inputbox {
         max-width: 100%;
+        width: 100%;
+    }
+
+    .banner1 {
+        display: none;
     }
 }
 
-/* Mobile Devices (576px and below) */
+/* ── Large Phones / Small Tablets (576px and below) ──────────────────────── */
 @media (max-width: 576px) {
     #header {
         padding: 0 16px;
-        height: 65px;
+        height: 64px;
     }
 
+    .logo {
+        height: 44px;
+        width: 46px;
+    }
+
+    /* Hero flips: image above, text below */
     .ad {
         flex-direction: column-reverse;
-        padding: 30px 20px;
+        padding: 28px 16px 36px;
         text-align: center;
-        gap: 24px;
+        gap: 20px;
         min-height: auto;
     }
 
     .ad-content {
         width: 100%;
+        max-width: 100%;
+    }
+
+    .ad-content h3 {
+        font-size: 12px;
+        letter-spacing: 1.5px;
     }
 
     .ad-content h2 {
-        font-size: 28px;
+        font-size: 26px;
+        line-height: 1.2;
     }
 
     .ad-content h5 {
-        font-size: 15px;
+        font-size: 14px;
+        margin-top: 10px;
     }
 
     .backimg {
         width: 100%;
-        height: 240px;
+        height: 220px;
         max-width: 100%;
+        border-radius: 14px;
     }
 
+    /* Feature boxes */
     .cart-item {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
-        padding: 24px 16px;
+        padding: 20px 16px;
     }
 
     .featurebox {
-        height: 120px;
+        height: 315px;
+        border-radius: 12px;
     }
 
+    /* Sections padding */
     #featurebox2,
     .newarrive,
     #offerbox {
-        padding: 30px 16px;
+        padding: 28px 16px;
+    }
+
+    /* Section headings */
+    .cartbox {
+        margin-bottom: 20px;
     }
 
     .cartbox h2,
     .cartbox h3 {
-        font-size: 26px;
+        font-size: 24px;
     }
 
-    .products {
+    .cartbox p {
+        font-size: 13px;
+    }
+
+    /* Products 2-col on phones */
+    .products,
+    .product1 {
         grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 
+    .productbox {
+        border-radius: 14px;
+
+    }
+
     .pro {
-        height: 200px;
+        height: 290px;
+        border-radius: 14px 14px 0 0;
+    }
+
+    #ad {
+        padding: 10px 12px 0;
     }
 
     .brand {
-        font-size: 14px;
+        font-size: 13px;
+    }
+
+    .review i {
+        font-size: 11px;
     }
 
     .price {
-        font-size: 16px;
+        font-size: 15px;
+        margin-top: 4px;
     }
 
+    .cart {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .cart a i {
+        width: 36px;
+        height: 36px;
+        font-size: 14px;
+    }
+
+    /* Explore banner */
     .explore {
-        min-height: 360px;
+        min-height: 320px;
         padding: 50px 20px;
     }
 
     .explore h4 {
-        font-size: 24px;
+        font-size: 22px;
     }
 
     .explore-btn {
-        padding: 12px 32px;
+        padding: 12px 28px;
         font-size: 14px;
     }
 
+    /* Offer / Shop Now banner */
+    #offerbox {
+        padding: 20px 16px;
+    }
+
+
+
     .mainbox1 {
-        min-height: 260px;
-        padding: 20px;
+        min-height: 230px;
+        padding: 20px 16px;
         justify-content: center;
         align-items: center;
     }
 
     .mainbox1 button {
-        padding: 12px 28px;
+        padding: 12px 26px;
+        font-size: 14px;
+    }
+
+    /* Newsletter */
+    .signup {
+        padding: 36px 16px;
+        gap: 20px;
     }
 
     .signuppage h3 {
-        font-size: 22px;
+        font-size: 20px;
     }
 
+    .signup input {
+        height: 46px;
+        font-size: 14px;
+        padding: 0 16px;
+    }
+
+    .signup button {
+        height: 46px;
+        padding: 0 20px;
+        font-size: 14px;
+    }
+
+    /* Footer */
     .foot {
         flex-direction: column;
-        gap: 30px;
-        padding: 30px 20px;
+        gap: 28px;
+        padding: 28px 16px;
     }
 }
 
-/* Extra Small Devices / Micro Screens (400px and below) */
-@media (max-width: 400px) {
-    .products {
-        grid-template-columns: 1fr;
-    }
-
-    .pro {
-        height: 280px;
+/* ── Small Phones (480px and below) ──────────────────────────────────────── */
+@media (max-width: 480px) {
+    .ad-content h2 {
+        font-size: 24px;
     }
 
     .cart-item {
         grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 18px 12px;
     }
 
     .featurebox {
-        height: 110px;
+        height: 205px;
+    }
+
+    .products,
+    .product1 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .pro {
+        height: 270px;
+    }
+
+    .cartbox h2,
+    .cartbox h3 {
+        font-size: 22px;
+    }
+}
+
+/* ── Mini / Compact Phones (375px and below) ─────────────────────────────── */
+@media (max-width: 375px) {
+    #header {
+        padding: 0 12px;
+        height: 60px;
+    }
+
+    .logo {
+        height: 40px;
+        width: 42px;
+    }
+
+    .ad {
+        padding: 22px 12px 30px;
+    }
+
+    .ad-content h2 {
+        font-size: 22px;
+    }
+
+    .backimg {
+        height: 180px;
+    }
+
+    /* Single column products for very small phones */
+    .products,
+    .product1 {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .pro {
+        height: 260px;
+    }
+
+    .cart-item {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 16px 12px;
+    }
+
+    .featurebox {
+        height: 96px;
+        border-radius: 10px;
+    }
+
+    #featurebox2,
+    .newarrive,
+    #offerbox {
+        padding: 22px 12px;
+    }
+
+    .cartbox h2,
+    .cartbox h3 {
+        font-size: 20px;
+    }
+
+    .explore {
+        min-height: 280px;
+        padding: 40px 16px;
+    }
+
+    .explore h4 {
+        font-size: 20px;
+    }
+
+    .explore-btn {
+        padding: 11px 24px;
+        font-size: 13px;
+    }
+
+    .mainbox1 {
+        min-height: 200px;
+        padding: 16px 12px;
+    }
+
+    .signup {
+        padding: 28px 12px;
+    }
+
+    .signuppage h3 {
+        font-size: 18px;
+    }
+
+    .foot {
+        padding: 24px 12px;
+    }
+}
+
+/* ── Tiny / Oldest Devices (320px and below) ─────────────────────────────── */
+@media (max-width: 320px) {
+    .ad-content h2 {
+        font-size: 20px;
+    }
+
+    .ad-content h5 {
+        font-size: 13px;
+    }
+
+    .backimg {
+        height: 160px;
+    }
+
+    .products,
+    .product1 {
+        grid-template-columns: 1fr;
+    }
+
+    .pro {
+        height: 240px;
+    }
+
+    .featurebox {
+        height: 88px;
+    }
+
+    .mainbox1 {
+        min-height: 180px;
+    }
+
+    .cartbox h2,
+    .cartbox h3 {
+        font-size: 18px;
+    }
+
+    .explore h4 {
+        font-size: 18px;
+    }
+
+    .signuppage h3 {
+        font-size: 16px;
+    }
+
+    .signup input,
+    .signup button {
+        height: 42px;
+        font-size: 13px;
     }
 }
