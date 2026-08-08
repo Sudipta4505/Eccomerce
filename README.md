@@ -52,12 +52,7 @@ No build step needed. Simply open the project in your browser:
 1. **Clone or download** this repository
 2. Open `index.html` in any modern browser
 
-Or use a local development server (e.g. VS Code **Live Server** extension):
 
-```bash
-# With Live Server running on port 5500
-http://localhost:5500/
-```
 
 ---
 
