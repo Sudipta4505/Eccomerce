@@ -1,0 +1,964 @@
+/* ==========================================================================
+   GLOBAL DESIGN SYSTEM & BASE STYLES
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #51bdb4;
+    --primary-dark: #3da8a0;
+    --secondary-color: #ff5252;
+    --text-dark: #0f172a;
+    --text-muted: #475569;
+    --text-light: #64748b;
+    --bg-light: #f8fafb;
+    --bg-white: #ffffff;
+    --border-color: #e8ecef;
+    --accent-orange: #c97b2f;
+    --star-gold: #f0a500;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --shadow-lg: 0 12px 35px rgba(0, 0, 0, 0.12);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-white);
+    line-height: 1.5;
+    overflow-x: hidden;
+}
+
+/* Base utility for background image containers */
+.backimg,
+.featurebox,
+.pro,
+.explore,
+.pic1,
+.signup,
+.foot1 .logo {
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+/* ==========================================================================
+   HEADER & NAVIGATION
+   ========================================================================== */
+#header {
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 5%;
+    background-color: var(--bg-white);
+    box-shadow: var(--shadow-sm);
+    z-index: 1000;
+    transition: var(--transition-smooth);
+}
+
+.logo {
+    height: 52px;
+    width: 55px;
+    border-radius: 10px;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+#navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+}
+
+#navbar li {
+    padding: 0 12px;
+}
+
+#navbar li a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-dark);
+    position: relative;
+    padding: 6px 0;
+    transition: var(--transition-smooth);
+}
+
+#navbar li a:hover,
+#navbar li a.active {
+    color: var(--primary-color);
+}
+
+#navbar li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+#navbar li a:hover::after,
+#navbar li a.active::after {
+    width: 100%;
+}
+
+.mobile,
+.mobile2 {
+    display: none;
+}
+
+/* ==========================================================================
+   HERO / BANNER SECTION
+   ========================================================================== */
+.ad {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #e8f5f3 0%, #f0fdfa 100%);
+    padding: 60px 8%;
+    min-height: 520px;
+    gap: 40px;
+}
+
+.ad-content {
+    flex: 1;
+    max-width: 600px;
+}
+
+.ad-content h3 {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+}
+
+.ad-content h2 {
+    font-size: 48px;
+    line-height: 1.15;
+    color: var(--text-dark);
+    font-weight: 800;
+}
+
+.ad-content h5 {
+    font-size: 17px;
+    margin-top: 14px;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+.backimg {
+    flex: 1;
+    width: 100%;
+    height: 400px;
+    max-width: 550px;
+    background-image: url("https://www.cato.org/sites/cato.org/files/styles/aside_3x/public/2023-11/fast-fashion2.jpeg?itok=72ek8bxI");
+    border-radius: 20px;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition-smooth);
+}
+
+.backimg:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+/* ==========================================================================
+   FEATURE CATEGORIES CONTAINER
+   ========================================================================== */
+.cart-item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    background-color: var(--bg-light);
+    padding: 40px 8%;
+}
+
+.featurebox {
+    height: 390px;
+    width: 100%;
+
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+}
+
+.featurebox::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.05);
+    transition: var(--transition-smooth);
+}
+
+.featurebox:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+.featurebox:hover::after {
+    background: rgba(0, 0, 0, 0.0);
+}
+
+.box1 {
+    background-image: url("https://templates.mediamodifier.com/5d9adc3f1c7ab3066c174a77/mens-fashion-trends-banner-maker.jpg");
+
+
+
+
+
+}
+
+
+
+.box2 {
+    background-image: url("https://img.freepik.com/premium-psd/special-sale-t-shirt-media-social-post-template_361928-1418.jpg?semt=ais_incoming&w=740&q=80");
+}
+
+.box3 {
+    background-image: url("https://d1csarkz8obe9u.cloudfront.net/posterpreviews/modern-fashion-clothing-sale-ad-design-template-f1def7d5f2c1c70005fc6ed3b08f1774_screen.jpg?ts=1609970500");
+}
+
+.box4 {
+    background-image: url("https://newspaperads.ads2publish.com/wp-content/uploads/2017/10/kenith-parker-buy-1-shirt-get1-shirt-free-ad-times-of-india-chennai-29-9-17.jpg");
+}
+
+.box5 {
+    background-image: url("https://images-home.beyoung.in/overall_shirts_1x1_7b4a1ac3a1.jpg");
+}
+
+.box6 {
+    background-image: url("https://shirtz.cool/cdn/shop/files/Black_Ad_Flat.jpg?v=1760691389&width=720");
+}
+
+.box7 {
+    background-image: url("https://mcrshopping.com/cdn/shop/files/767x850_-_mobile_view.jpg?v=1763206284&width=3840");
+}
+
+.box8 {
+    background-image: url("https://www.montecarlo.in/cdn/shop/files/MCB_Mob_04.jpg?v=1774438147");
+}
+
+/* ==========================================================================
+   FEATURED PRODUCTS & NEW ARRIVALS
+   ========================================================================== */
+#featurebox2 {
+    padding: 60px 8%;
+    background-color: var(--bg-white);
+}
+
+.newarrive {
+    padding: 60px 8%;
+    background-color: var(--bg-light);
+}
+
+.cartbox {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.cartbox h2,
+.cartbox h3 {
+    font-size: 36px;
+    color: var(--text-dark);
+    font-weight: 800;
+    letter-spacing: -0.5px;
+}
+
+.cartbox p {
+    color: var(--accent-orange);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-top: 6px;
+}
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    width: 100%;
+}
+
+.productbox {
+    background-color: var(--bg-white);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    padding-bottom: 16px;
+    overflow: hidden;
+    transition: var(--transition-smooth);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.productbox:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-6px);
+    border-color: transparent;
+}
+
+.pro {
+    height: 480px;
+    width: 100%;
+    border-radius: 18px 18px 0 0;
+    transition: var(--transition-smooth);
+}
+
+.productbox:hover .pro {
+    transform: scale(1.03);
+}
+
+/* Featured Product Background Images */
+.pro1 {
+    background-image: url("https://www.beyours.in/cdn/shop/files/light-blue-classic-shirt.jpg?v=1763537464");
+}
+
+.pro2 {
+    background-image: url("https://veirdo.in/cdn/shop/files/Artboard20_3.png?v=1769676271");
+}
+
+.pro3 {
+    background-image: url("https://www.beyoung.in/api/cache/catalog/products/new_shirt_upload_21_10_2022/space_grey_baggy_pocketed_shirt_base_23_10_2024_700x933.jpg");
+}
+
+.pro4 {
+    background-image: url("https://images-static.nykaa.com/media/catalog/product/d/e/de1624aCFS16_1.jpg");
+}
+
+.pro5 {
+    background-image: url("https://veirdo.in/cdn/shop/files/b_0119493a-9927-4550-8323-baefe5f625c0.jpg?v=1759917565");
+}
+
+.pro6 {
+    background-image: url("https://assets0.mirraw.com/images/7882473/206YK324MUSTARD_(1)_zoom.jpg?1696946610");
+}
+
+.pro7 {
+    background-image: url("https://sheetalonlinefashion.in/cdn/shop/files/890lr_512.webp?v=1711562700");
+}
+
+.pro8 {
+    background-image: url("https://imagescdn.pantaloons.com/img/app/product/9/989664-13126065.jpg?auto=format&w=450");
+}
+
+/* New Arrival Product Background Images */
+.product1 .pro1 {
+    background-image: url("https://rajanyas.com/cdn/shop/files/Ramaa_sTag.jpg?v=1736950654");
+}
+
+.product1 .pro2 {
+    background-image: url("https://cdn.shopify.com/s/files/1/0420/7073/7058/files/4MSS2916-05-M3.jpg?v=1759578127&quality=80");
+}
+
+.product1 .pro3 {
+    background-image: url("https://images.bewakoof.com/t320/men-s-red-moon-rider-graphic-printed-oversized-t-shirt-502017-1737092523-1.jpg");
+}
+
+.product1 .pro4 {
+    background-image: url("https://www.aristobrat.in/cdn/shop/files/TencelShirt_ClassicBlue_Aug23_3.jpg?v=1692630062&width=2048");
+}
+
+.product1 .pro5 {
+    background-image: url("https://veirdo.in/cdn/shop/files/Artboard_20_16.jpg?v=1758343737");
+}
+
+.product1 .pro6 {
+    background-image: url("https://assets0.mirraw.com/images/7882473/206YK324MUSTARD_(1)_zoom.jpg?1696946610");
+}
+
+.product1 .pro7 {
+    background-image: url("https://imagescdn.pantaloons.com/img/app/product/8/878618-10584885.jpg?auto=format&w=450");
+}
+
+.product1 .pro8 {
+    background-image: url("https://assets.ajio.com/medias/sys_master/root1/20260220/vWP9/699899597ef0c7385c1be1f0/-473Wx593H-703002055-maroon-MODEL.jpg");
+}
+
+.pro-details {
+    padding: 14px 16px 0 16px;
+}
+
+.brand {
+    color: var(--text-dark);
+    font-size: 15px;
+    font-weight: 700;
+    display: block;
+    letter-spacing: 0.5px;
+}
+
+.review {
+    color: var(--star-gold);
+    display: flex;
+    gap: 4px;
+    margin-top: 6px;
+}
+
+.review i {
+    font-size: 13px;
+}
+
+.price {
+    color: var(--text-dark);
+    font-size: 20px;
+    margin-top: 6px;
+    font-weight: 800;
+    display: block;
+}
+
+.cart {
+    position: absolute;
+    bottom: 14px;
+    right: 14px;
+}
+
+.cart a {
+    text-decoration: none;
+}
+
+.cart a i {
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    font-size: 16px;
+    transition: var(--transition-smooth);
+    border: 1px solid var(--border-color);
+}
+
+.cart a i:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+}
+
+/* ==========================================================================
+   EXPLORE BANNER SECTION
+   ========================================================================== */
+.explore {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 90px 5%;
+    width: 100%;
+    background-image:
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.75)),
+        url("explore-banner.png");
+    min-height: 420px;
+}
+
+.explore h4 {
+    font-size: 32px;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: #ffffff;
+    max-width: 800px;
+    line-height: 1.3;
+}
+
+.explore-btn {
+    display: inline-block;
+    text-decoration: none;
+    padding: 14px 44px;
+    font-size: 15px;
+    font-weight: 700;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    border-radius: 50px;
+    transition: var(--transition-smooth);
+    margin-top: 10px;
+    box-shadow: 0 4px 15px rgba(81, 189, 180, 0.4);
+}
+
+.explore-btn:hover {
+    background-color: var(--secondary-color);
+    box-shadow: 0 4px 20px rgba(255, 82, 82, 0.4);
+    transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   OFFER / SHOP NOW SECTION
+   ========================================================================== */
+#offerbox {
+    width: 100%;
+    padding: 40px 8%;
+    background-color: var(--bg-white);
+}
+
+#outbox {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+}
+
+.mainbox1 {
+    min-height: 380px;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 40px 60px;
+    position: relative;
+}
+
+.pic1 {
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4)), url("https://cdn.shopify.com/s/files/1/1982/7331/files/1440_550_copy_3.png?v=1742922059");
+}
+
+.mainbox1 button {
+    padding: 14px 38px;
+    border: 2px solid #ffffff;
+    color: #ffffff;
+    font-weight: 700;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: var(--transition-smooth);
+}
+
+.mainbox1 button:hover {
+    background-color: #ffffff;
+    color: var(--text-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================================================
+   NEWSLETTER SIGNUP SECTION
+   ========================================================================== */
+.signup {
+    background-image: linear-gradient(to right, rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.75)), url("https://i.pinimg.com/originals/e9/cb/9c/e9cb9cdbc8fcf90a1c182f1e365e723d.jpg");
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 8%;
+    gap: 30px;
+}
+
+.signuppage h3 {
+    color: #ffffff;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.signuppage p {
+    color: #94a3b8;
+    font-size: 15px;
+    font-weight: 500;
+    margin-top: 6px;
+}
+
+.signuppage p span {
+    color: var(--accent-orange);
+}
+
+.signup .inputbox {
+    display: flex;
+    align-items: center;
+    max-width: 450px;
+    width: 100%;
+}
+
+.signup input {
+    font-size: 15px;
+    height: 50px;
+    width: 100%;
+    border-radius: 50px 0 0 50px;
+    padding: 0 24px;
+    border: none;
+    outline: none;
+    background: #ffffff;
+}
+
+.signup button {
+    height: 50px;
+    padding: 0 28px;
+    border: none;
+    background-color: var(--primary-color);
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 0 50px 50px 0;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    white-space: nowrap;
+}
+
+.signup button:hover {
+    background-color: var(--primary-dark);
+}
+
+/* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+    background-color: var(--bg-light);
+    border-top: 1px solid var(--border-color);
+}
+
+.foot {
+    padding: 50px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 60px;
+}
+
+.foot1,
+.foot2 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.foot1 .logo {
+    width: 58px;
+    height: 55px;
+    border-radius: 10px;
+}
+
+.strong strong {
+    font-size: 18px;
+    color: var(--text-dark);
+    font-weight: 700;
+}
+
+.description {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.description strong {
+    font-size: 14px;
+    color: var(--text-muted);
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (ALL DEVICES SUPPORTED)
+   ========================================================================== */
+
+/* Laptop & Desktop Containers (1200px and below) */
+@media (max-width: 1200px) {
+    .ad-content h2 {
+        font-size: 40px;
+    }
+
+    .products {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    .cart-item {
+        gap: 16px;
+    }
+}
+
+/* Tablets (991px and below) */
+@media (max-width: 991px) {
+    #header {
+        padding: 0 4%;
+    }
+
+    .ad {
+        padding: 40px 5%;
+        min-height: 440px;
+        gap: 30px;
+    }
+
+    .ad-content h2 {
+        font-size: 34px;
+    }
+
+    .backimg {
+        height: 320px;
+    }
+
+    .cart-item {
+        grid-template-columns: repeat(4, 1fr);
+        padding: 30px 5%;
+        gap: 14px;
+    }
+
+    .featurebox {
+        height: 150px;
+    }
+
+    #featurebox2,
+    .newarrive,
+    #offerbox {
+        padding: 40px 5%;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .pro {
+        height: 260px;
+    }
+
+    .signup {
+        padding: 40px 5%;
+    }
+
+    .foot {
+        padding: 40px 5%;
+        gap: 40px;
+    }
+}
+
+/* Mobile Menu & Small Tablets (799px and below) */
+@media (max-width: 799px) {
+    #navbar {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+        position: fixed;
+        top: 0;
+        right: -310px;
+        height: 100vh;
+        width: 280px;
+        background-color: var(--bg-white);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.15);
+        padding: 80px 0 0 30px;
+        transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 999;
+    }
+
+    #navbar.active {
+        right: 0;
+    }
+
+    .mobile {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    .mobile i {
+        display: flex;
+        align-items: center;
+        color: var(--text-dark);
+        font-size: 24px;
+    }
+
+    .mobile2 {
+        display: flex;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .mobile2 i {
+        display: flex;
+        align-items: center;
+        font-size: 22px;
+        color: var(--text-dark);
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .mobile2 i:hover {
+        color: var(--secondary-color);
+    }
+
+    #navbar li {
+        width: 100%;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--border-color);
+    }
+
+    #navbar li a {
+        font-size: 17px;
+        display: block;
+        width: 100%;
+    }
+
+    #navbar li a::after {
+        display: none;
+    }
+
+    .cart-item {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .featurebox {
+        height: 140px;
+    }
+
+    .signup {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .signup .inputbox {
+        max-width: 100%;
+    }
+}
+
+/* Mobile Devices (576px and below) */
+@media (max-width: 576px) {
+    #header {
+        padding: 0 16px;
+        height: 65px;
+    }
+
+    .ad {
+        flex-direction: column-reverse;
+        padding: 30px 20px;
+        text-align: center;
+        gap: 24px;
+        min-height: auto;
+    }
+
+    .ad-content {
+        width: 100%;
+    }
+
+    .ad-content h2 {
+        font-size: 28px;
+    }
+
+    .ad-content h5 {
+        font-size: 15px;
+    }
+
+    .backimg {
+        width: 100%;
+        height: 240px;
+        max-width: 100%;
+    }
+
+    .cart-item {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 24px 16px;
+    }
+
+    .featurebox {
+        height: 120px;
+    }
+
+    #featurebox2,
+    .newarrive,
+    #offerbox {
+        padding: 30px 16px;
+    }
+
+    .cartbox h2,
+    .cartbox h3 {
+        font-size: 26px;
+    }
+
+    .products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .pro {
+        height: 200px;
+    }
+
+    .brand {
+        font-size: 14px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+
+    .explore {
+        min-height: 360px;
+        padding: 50px 20px;
+    }
+
+    .explore h4 {
+        font-size: 24px;
+    }
+
+    .explore-btn {
+        padding: 12px 32px;
+        font-size: 14px;
+    }
+
+    .mainbox1 {
+        min-height: 260px;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .mainbox1 button {
+        padding: 12px 28px;
+    }
+
+    .signuppage h3 {
+        font-size: 22px;
+    }
+
+    .foot {
+        flex-direction: column;
+        gap: 30px;
+        padding: 30px 20px;
+    }
+}
+
+/* Extra Small Devices / Micro Screens (400px and below) */
+@media (max-width: 400px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+
+    .pro {
+        height: 280px;
+    }
+
+    .cart-item {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .featurebox {
+        height: 110px;
+    }
+}
