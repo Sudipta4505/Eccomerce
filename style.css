@@ -264,6 +264,76 @@ body {
 }
 
 /* ==========================================================================
+   FOOTER
+   ========================================================================== */
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 28px 8%;
+    background: linear-gradient(135deg, #eef9f8 0%, #f8fbfb 100%);
+    border-top: 1px solid var(--border-color);
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.footer-logo img {
+    width: 48px;
+    height: 48px;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: var(--shadow-sm);
+}
+
+.footer-brand h4 {
+    font-size: 18px;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+}
+
+.footer-brand p {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+.social-links {
+    display: flex;
+    gap: 12px;
+}
+
+.social-links a {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background-color: var(--bg-white);
+    color: var(--primary-color);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--bg-white);
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+/* ==========================================================================
    FEATURED PRODUCTS & NEW ARRIVALS
    ========================================================================== */
 #featurebox2 {
